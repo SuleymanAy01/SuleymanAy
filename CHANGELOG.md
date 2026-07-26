@@ -1,5 +1,20 @@
 # Değişiklik Günlüğü
 
+## 1.0.2 — 26 Temmuz 2026
+
+- Repository'deki güncel içerik (2 uygulama, 1 oyun) tek `content.json`
+  kaynağına aktarıldı.
+- GitHub Pages'te eski artifact'in kalmasının nedeni olan eksik workflow
+  dağıtım zinciri giderildi.
+- Workflow'a kaynak `content.json` ile `dist/content.json` için byte düzeyinde
+  eşitlik ve SHA-256 kontrolü eklendi.
+- Admin **Yayınla** işlemi commit sonrasında GitHub Pages workflow'unu açıkça
+  tetikleyecek, tamamlanmasını izleyecek ve canlı `content.json` içeriğini
+  doğrulayacak şekilde geliştirildi.
+- Admin token gereksinimine güvenli ve sınırlı `Actions: Read and write` izni
+  eklendi.
+- Güncel içerikte artık referans edilmeyen eski medya dosyası kaldırıldı.
+
 ## 1.0.1 — 26 Temmuz 2026
 
 - Mevcut tasarım ve sayfa yapısı korunarak bozuk ZIP dosya eşleşmeleri temizlendi.

@@ -123,12 +123,18 @@ test("admin CRUD, medya silme ve tek commit yayın akışını içerir", async (
   assert.match(adminConfig, /allowedLogin:\s*"SuleymanAy01"/);
   assert.match(adminConfig, /allowedUserId:\s*297488903/);
   assert.match(adminConfig, /repositoryName:\s*"SuleymanAy"/);
+  assert.match(adminConfig, /workflowFile:\s*"deploy-pages\.yml"/);
   assert.match(adminSource, /pendingDeletes:\s*new Set\(\)/);
   assert.match(adminSource, /sha:\s*null/);
   assert.match(adminSource, /git\/blobs/);
   assert.match(adminSource, /git\/trees/);
   assert.match(adminSource, /git\/commits/);
   assert.match(adminSource, /git\/refs\/heads/);
+  assert.match(adminSource, /function dispatchDeployment/);
+  assert.match(adminSource, /function waitForDeployment/);
+  assert.match(adminSource, /function verifyPublishedContent/);
+  assert.match(adminSource, /actions\/workflows/);
+  assert.match(adminSource, /canlı content\.json doğrulandı/);
   assert.doesNotMatch(adminSource, /localStorage\.setItem\([^)]*(?:token|access)/i);
   assert.doesNotMatch(
     adminSource,
@@ -221,6 +227,8 @@ test("GitHub Pages workflow yalnızca doğrulanmış dist artifact'ini yayınlar
   assert.match(workflow, /pnpm install --frozen-lockfile/);
   assert.match(workflow, /actions\/configure-pages@v5/);
   assert.match(workflow, /pnpm test/);
+  assert.match(workflow, /cmp --silent content\.json dist\/content\.json/);
+  assert.match(workflow, /sha256sum content\.json dist\/content\.json/);
   assert.match(workflow, /actions\/upload-pages-artifact@v4/);
   assert.match(workflow, /path:\s*dist/);
   assert.match(workflow, /actions\/deploy-pages@v4/);

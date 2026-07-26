@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { copyFile, readFile, stat } from "node:fs/promises";
 
 const projectRoot = new URL("../", import.meta.url);
@@ -44,7 +45,10 @@ async function preparePagesContent() {
   );
   JSON.parse(outputText);
 
-  console.log("Pages içerik doğrulaması başarılı: content.json -> dist/content.json");
+  const checksum = createHash("sha256").update(outputText).digest("hex");
+  console.log(
+    `Pages içerik doğrulaması başarılı: content.json -> dist/content.json (sha256: ${checksum})`,
+  );
 }
 
 await preparePagesContent();

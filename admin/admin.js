@@ -13,6 +13,8 @@ const overlays = document.querySelector("#admin-overlays");
 const DRAFT_KEY = "sa-admin-static-draft-v1";
 const REPOSITORY_KEY = "sa-admin-repository-v1";
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const DEPLOYMENT_TIMEOUT = 5 * 60 * 1000;
+const DEPLOYMENT_POLL_INTERVAL = 4000;
 
 const state = {
   token: null,
@@ -193,7 +195,7 @@ function renderLogin(error = "") {
         </a>
         <div class="admin-security-note">
           Yalnızca <strong>@${escapeHtml(ADMIN_CONFIG.allowedLogin)}</strong> hesabı ve seçilen repository için
-          <strong>Contents: Read and write</strong> izni yeterlidir.
+          <strong>Contents: Read and write</strong> ile <strong>Actions: Read and write</strong> izinleri gerekir.
         </div>
         ${error ? `<div class="admin-alert">${escapeHtml(error)}</div>` : ""}
       </section>
@@ -750,6 +752,82 @@ function addApiDiagnostic(title, error) {
   });
 }
 
+function wait(milliseconds) {
+  return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
+}
+
+function workflowApiPath(owner, repo, suffix = "") {
+  const workflow = encodeURIComponent(ADMIN_CONFIG.workflowFile);
+  return `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`
+    + `/actions/workflows/${workflow}${suffix}`;
+}
+
+async function dispatchDeployment(owner, repo, branch) {
+  return githubRequest(workflowApiPath(owner, repo, "/dispatches"), {
+    method: "POST",
+    body: JSON.stringify({ ref: branch }),
+  });
+}
+
+async function waitForDeployment(owner, repo, branch, commitSha) {
+  const deadline = Date.now() + DEPLOYMENT_TIMEOUT;
+  let lastStatus = "iş akışı henüz görünmüyor";
+
+  while (Date.now() < deadline) {
+    const runs = await githubRequest(
+      `${workflowApiPath(owner, repo, "/runs")}`
+      + `?branch=${encodeURIComponent(branch)}&per_page=20`,
+    );
+    const run = runs?.workflow_runs?.find((item) => item.head_sha === commitSha);
+    if (run) {
+      lastStatus = `${run.status}${run.conclusion ? ` / ${run.conclusion}` : ""}`;
+      if (run.status === "completed") {
+        if (run.conclusion === "success") return run;
+        throw new Error(
+          `GitHub Pages iş akışı tamamlandı ancak başarısız oldu: ${lastStatus}`
+          + (run.html_url ? `\nİş akışı: ${run.html_url}` : ""),
+        );
+      }
+    }
+    await wait(DEPLOYMENT_POLL_INTERVAL);
+  }
+
+  throw new Error(`GitHub Pages iş akışı zaman aşımına uğradı. Son durum: ${lastStatus}`);
+}
+
+async function verifyPublishedContent(expectedContent) {
+  const expectedText = JSON.stringify(expectedContent, null, 2);
+  const deadline = Date.now() + 90 * 1000;
+  let lastStatus = "canlı dosya henüz okunamadı";
+
+  while (Date.now() < deadline) {
+    const url = publishedContentUrl();
+    url.searchParams.set("v", String(Date.now()));
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (response.ok) {
+        const liveText = await response.text();
+        if (liveText.trim() === expectedText.trim()) return url;
+        try {
+          const liveContent = JSON.parse(liveText);
+          lastStatus = `canlı generatedAt: ${liveContent.generatedAt || "yok"}`;
+        } catch {
+          lastStatus = "canlı dosya geçerli JSON değil";
+        }
+      } else {
+        lastStatus = `HTTP ${response.status} ${response.statusText}`.trim();
+      }
+    } catch (error) {
+      lastStatus = error.message;
+    }
+    await wait(DEPLOYMENT_POLL_INTERVAL);
+  }
+
+  throw new Error(
+    `Deploy tamamlandı ancak canlı content.json repository ile eşleşmedi. ${lastStatus}`,
+  );
+}
+
 /**
  * /admin veya /admin/ biçimlerinin ikisinde de tek content.json adresini bulur.
  */
@@ -904,6 +982,9 @@ async function publish() {
       `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/git/refs/heads/${encodeURIComponent(branch)}`,
       { method: "PATCH", body: JSON.stringify({ sha: commit.sha, force: false }) },
     );
+    await dispatchDeployment(owner, repo, branch);
+    const deploymentRun = await waitForDeployment(owner, repo, branch, commit.sha);
+    await verifyPublishedContent(publishContent);
 
     state.content = normaliseContent(publishContent);
     state.pendingUploads.clear();
@@ -920,7 +1001,10 @@ async function publish() {
         contentPath: ADMIN_CONFIG.contentPath,
       }),
     );
-    toast(`Yayın commit'i oluşturuldu: ${commit.sha.slice(0, 7)}`);
+    toast(
+      `Yayın tamamlandı ve canlı content.json doğrulandı: ${commit.sha.slice(0, 7)}`
+      + (deploymentRun.html_url ? `\n${deploymentRun.html_url}` : ""),
+    );
   } catch (error) {
     toast(`Yayın başarısız: ${error.message}`, true);
   } finally {

@@ -1,6 +1,6 @@
 {
   "name": "suleyman-ay-resmi-web-sitesi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "GitHub Pages üzerinde çalışan tamamen statik kişisel site ve yönetim paneli.",
   "packageManager": "pnpm@11.9.0",

@@ -12,6 +12,7 @@ export const ADMIN_CONFIG = Object.freeze({
   repositoryName: "SuleymanAy",
   repositoryBranch: "main",
   contentPath: "content.json",
+  workflowFile: "deploy-pages.yml",
   publicDirectory: "public",
   uploadDirectory: "assets/uploads",
   tokenCreationUrl: "https://github.com/settings/personal-access-tokens/new",
