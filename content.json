@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T13:44:55.476Z",
+  "generatedAt": "2026-07-26T13:54:22.676Z",
   "settings": {
     "siteTitle": "Süleyman Ay",
     "siteDescription": "Mobil uygulamalar ve oyunlar geliştiren bağımsız geliştirici.",
@@ -9,9 +9,9 @@
     "seoTitle": "Süleyman Ay — Bağımsız Geliştirici",
     "seoDescription": "Süleyman Ay'ın mobil uygulamalar ve oyunlar geliştirdiği resmi web sitesi.",
     "theme": "dark",
-    "faviconUrl": "",
-    "siteLogoUrl": null,
-    "heroUrl": ""
+    "faviconUrl": "assets/uploads/1785073480964-007.png",
+    "siteLogoUrl": "assets/uploads/1785073480964-007.png",
+    "heroUrl": "assets/uploads/1785073480964-007.png"
   },
   "apps": [
     {
@@ -19,18 +19,18 @@
       "name": "Focusia",
       "description": "Dikkatini korumana, işlerini planlamana ve günün ritmini yakalamana yardımcı olan sakin bir odak alanı.",
       "status": "Google Play",
+      "logoUrl": "assets/uploads/1785074043760-file_000000009d648246be4e04c30064b87f.png",
       "googlePlayUrl": null,
-      "websiteUrl": null,
-      "logoUrl": null
+      "websiteUrl": null
     },
     {
       "id": "app-dailynest",
       "name": "DailyNest",
       "description": "Notlarını, rutinlerini ve günün küçük hedeflerini tek bir sıcak ve düzenli alanda bir araya getirir.",
       "status": "Yakında",
+      "logoUrl": "assets/uploads/1785074054161-file_00000000dfb8820ab2bea32c5d29f360.png",
       "googlePlayUrl": null,
-      "websiteUrl": null,
-      "logoUrl": null
+      "websiteUrl": null
     }
   ],
   "games": [
@@ -45,6 +45,22 @@
     }
   ],
   "media": [
+    {
+      "id": "media-e73763c4-ff0a-4940-af05-013b94d748b2",
+      "filename": "file_00000000dfb8820ab2bea32c5d29f360.png",
+      "contentType": "image/png",
+      "size": 1485037,
+      "kind": "app-logo",
+      "path": "assets/uploads/1785074054161-file_00000000dfb8820ab2bea32c5d29f360.png"
+    },
+    {
+      "id": "media-c8947c1c-a20c-4831-9b7c-6310697c26c4",
+      "filename": "file_000000009d648246be4e04c30064b87f.png",
+      "contentType": "image/png",
+      "size": 1038882,
+      "kind": "app-logo",
+      "path": "assets/uploads/1785074043760-file_000000009d648246be4e04c30064b87f.png"
+    },
     {
       "id": "media-c390d5b7-d239-48e9-8fa6-1b897533b3c6",
       "filename": "007.png",
