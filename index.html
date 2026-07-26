@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Süleyman Ay'ın mobil uygulamalar, bağımsız oyunlar ve yaratıcı dijital ürünler geliştirdiği resmi web sitesi." />
+    <meta name="keywords" content="Süleyman Ay, bağımsız geliştirici, mobil uygulama, oyun geliştirici, Focusia, DailyNest" />
+    <meta name="author" content="Süleyman Ay" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#070b14" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="Süleyman Ay" />
+    <meta property="og:title" content="Süleyman Ay — Bağımsız Geliştirici" />
+    <meta property="og:description" content="Mobil uygulamalar ve oyunlar geliştiren bağımsız geliştirici." />
+    <meta property="og:image" content="og.png" />
+    <meta property="og:image:alt" content="Süleyman Ay — Bağımsız Geliştirici" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Süleyman Ay — Bağımsız Geliştirici" />
+    <meta name="twitter:description" content="Mobil uygulamalar ve oyunlar geliştiren bağımsız geliştirici." />
+    <meta name="twitter:image" content="og.png" />
+
+    <title>Süleyman Ay — Bağımsız Geliştirici</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Tema tercihini ilk boyamadan önce uygular ve renk parlamasını önler. -->
+    <script>
+      (() => {
+        const savedTheme = localStorage.getItem("sa-theme");
+        const systemTheme = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">İçeriğe geç</a>
+
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__mark">SA</div>
+      <div class="loader__line"><span></span></div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#anasayfa" aria-label="Süleyman Ay ana sayfa">
+          <span class="brand__mark" aria-hidden="true">SA</span>
+          <span class="brand__name">Süleyman Ay</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Ana menü">
+          <a class="nav-link is-active" href="#anasayfa">Ana Sayfa</a>
+          <a class="nav-link" href="#uygulamalar">Uygulamalar</a>
+          <a class="nav-link" href="#oyunlar">Oyunlar</a>
+          <a class="nav-link" href="#hakkimda">Hakkımda</a>
+          <a class="nav-link" href="#iletisim">İletişim</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" type="button" aria-label="Açık temaya geç" aria-pressed="false">
+            <span class="theme-toggle__sun" aria-hidden="true">☀</span>
+            <span class="theme-toggle__moon" aria-hidden="true">☾</span>
+          </button>
+          <button class="menu-toggle" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobil menü">
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="#uygulamalar">Uygulamalar</a>
+        <a href="#oyunlar">Oyunlar</a>
+        <a href="#hakkimda">Hakkımda</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="anasayfa" aria-labelledby="hero-title">
+        <div class="hero__glow hero__glow--one" aria-hidden="true"></div>
+        <div class="hero__glow hero__glow--two" aria-hidden="true"></div>
+        <div class="hero__grid" aria-hidden="true"></div>
+
+        <div class="container hero__content">
+          <div class="eyebrow reveal">
+            <span class="eyebrow__dot" aria-hidden="true"></span>
+            Bağımsız geliştirici
+          </div>
+          <h1 id="hero-title" class="hero__title reveal">
+            Fikirleri <span>özenli dijital</span><br />
+            deneyimlere dönüştürüyorum.
+          </h1>
+          <p class="hero__lead reveal">Mobil uygulamalar ve oyunlar geliştiren bağımsız geliştirici.</p>
+          <div class="hero__actions reveal">
+            <a class="button button--primary" href="#uygulamalar">
+              Uygulamaları keşfet <span aria-hidden="true">→</span>
+            </a>
+            <a class="button button--secondary" href="#oyunlar">
+              Oyunları gör <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <div class="hero__signal reveal" aria-hidden="true">
+            <span>Mobil</span><i></i><span>Oyun</span><i></i><span>Deneyim</span>
+          </div>
+        </div>
+
+        <a class="scroll-cue" href="#uygulamalar" aria-label="Uygulamalara kaydır">
+          <span></span>
+        </a>
+      </section>
+
+      <section class="section" id="uygulamalar" aria-labelledby="apps-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-kicker">01 / Uygulamalar</span>
+              <h2 id="apps-title">Her güne değer katan<br />dijital araçlar.</h2>
+            </div>
+            <p>Odaklanmayı, düzeni ve küçük günlük işleri daha akıcı hâle getiren sade ürünler.</p>
+          </div>
+
+          <div class="card-grid card-grid--three">
+            <article class="product-card reveal" data-tone="cyan">
+              <div class="product-card__top">
+                <div class="product-icon" aria-hidden="true">
+                  <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" />
+                  <span>F</span>
+                </div>
+                <span class="status status--live"><i></i> Google Play</span>
+              </div>
+              <div>
+                <span class="product-card__type">Odak & üretkenlik</span>
+                <h3>Focusia</h3>
+                <p>Dikkatini korumana, işlerini planlamana ve günün ritmini yakalamana yardımcı olan sakin bir odak alanı.</p>
+              </div>
+              <a href="#iletisim" class="card-link" aria-label="Focusia hakkında bilgi al">İncele <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="product-card reveal" data-tone="blue">
+              <div class="product-card__top">
+                <div class="product-icon" aria-hidden="true">
+                  <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" />
+                  <span>B</span>
+                </div>
+                <span class="status"><i></i> Yakında</span>
+              </div>
+              <div>
+                <span class="product-card__type">Kayıt & keşif</span>
+                <h3>Bookmark Catcher</h3>
+                <p>İnternette karşılaştığın değerli bağlantıları hızlıca yakalayan ve düzenli tutan kişisel arşivin.</p>
+              </div>
+              <a href="#iletisim" class="card-link" aria-label="Bookmark Catcher hakkında bilgi al">Detaylar <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="product-card reveal" data-tone="violet">
+              <div class="product-card__top">
+                <div class="product-icon" aria-hidden="true">
+                  <img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" />
+                  <span>D</span>
+                </div>
+                <span class="status"><i></i> Yakında</span>
+              </div>
+              <div>
+                <span class="product-card__type">Günlük yaşam</span>
+                <h3>DailyNest</h3>
+                <p>Notlarını, rutinlerini ve günün küçük hedeflerini tek bir sıcak ve düzenli alanda bir araya getirir.</p>
+              </div>
+              <a href="#iletisim" class="card-link" aria-label="DailyNest hakkında bilgi al">Detaylar <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tinted" id="oyunlar" aria-labelledby="games-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-kicker">02 / Oyunlar</span>
+              <h2 id="games-title">Merak uyandıran<br />oynanabilir dünyalar.</h2>
+            </div>
+            <p>Hızlı reflekslerden sakin keşiflere uzanan, karakter sahibi bağımsız oyun deneyimleri.</p>
+          </div>
+
+          <div class="card-grid card-grid--games">
+            <article class="product-card reveal" data-tone="blue">
+              <div class="product-card__top">
+                <div class="product-icon" aria-hidden="true"><img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" /><span>BC</span></div>
+                <span class="status status--live"><i></i> Google Play</span>
+              </div>
+              <div><span class="product-card__type">Puzzle</span><h3>Bookmark Catcher</h3><p>Hız, dikkat ve doğru zamanlamayı buluşturan dinamik bir yakalama macerası.</p></div>
+              <a href="#iletisim" class="card-link" aria-label="Bookmark Catcher oyunu hakkında bilgi al">İncele <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="product-card reveal" data-tone="amber">
+              <div class="product-card__top">
+                <div class="product-icon" aria-hidden="true"><img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" /><span>CR</span></div>
+                <span class="status"><i></i> Yakında</span>
+              </div>
+              <div><span class="product-card__type">Arcade</span><h3>City Rush</h3><p>Neon şehir sokaklarında reflekslerini sınayan tempolu ve akıcı bir koşu deneyimi.</p></div>
+              <a href="#iletisim" class="card-link" aria-label="City Rush hakkında bilgi al">Detaylar <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="product-card reveal" data-tone="cyan">
+              <div class="product-card__top">
+                <div class="product-icon" aria-hidden="true"><img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" /><span>HV</span></div>
+                <span class="status"><i></i> Yakında</span>
+              </div>
+              <div><span class="product-card__type">Keşif</span><h3>Horizon Vale</h3><p>Uzak ufukların, saklı patikaların ve dingin keşiflerin şekillendirdiği bir vadi.</p></div>
+              <a href="#iletisim" class="card-link" aria-label="Horizon Vale hakkında bilgi al">Detaylar <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="product-card reveal" data-tone="rose">
+              <div class="product-card__top">
+                <div class="product-icon" aria-hidden="true"><img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" /><span>R</span></div>
+                <span class="status"><i></i> Yakında</span>
+              </div>
+              <div><span class="product-card__type">Refleks</span><h3>Reactix</h3><p>Minimal kurallar, artan tempo ve her turda biraz daha keskinleşen bir refleks sınavı.</p></div>
+              <a href="#iletisim" class="card-link" aria-label="Reactix hakkında bilgi al">Detaylar <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="product-card product-card--wide reveal" data-tone="violet">
+              <div class="product-card__top">
+                <div class="product-icon" aria-hidden="true"><img loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" /><span>T</span></div>
+                <span class="status"><i></i> Yakında</span>
+              </div>
+              <div><span class="product-card__type">Macera</span><h3>Teranova</h3><p>Yeni bir dünyanın sırlarını çözerken seçimlerinle yolunu şekillendireceğin atmosferik bir macera.</p></div>
+              <a href="#iletisim" class="card-link" aria-label="Teranova hakkında bilgi al">Detaylar <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="hakkimda" aria-labelledby="about-title">
+        <div class="container about__grid">
+          <div class="about__visual reveal" aria-hidden="true">
+            <div class="about__orb"><span>SA</span></div>
+            <span class="about__tag about__tag--one">Sürekli öğren</span>
+            <span class="about__tag about__tag--two">Özenle üret</span>
+            <span class="about__tag about__tag--three">Doğadan ilham al</span>
+          </div>
+          <div class="about__content reveal">
+            <span class="section-kicker">03 / Hakkımda</span>
+            <h2 id="about-title">İyi ürünler,<br />düşünülmüş detaylarla başlar.</h2>
+            <p>Doğa sever, sürekli öğrenmeye çalışan ve kaliteli uygulamalar ile oyunlar geliştirmeyi hedefleyen bağımsız bir geliştiriciyim.</p>
+            <p>Amacım; teknolojiyi anlaşılır, yararlı ve keyifli deneyimlere dönüştürürken her projede daha iyi bir iş ortaya koymak.</p>
+            <div class="about__values">
+              <span><strong>01</strong> Sadelik</span>
+              <span><strong>02</strong> Kalite</span>
+              <span><strong>03</strong> Merak</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="iletisim" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact__panel reveal">
+            <div class="contact__glow" aria-hidden="true"></div>
+            <span class="section-kicker">04 / İletişim</span>
+            <h2 id="contact-title">Bir fikrin mi var?<br /><span>Konuşalım.</span></h2>
+            <p>Projeler, iş birlikleri veya yalnızca merhaba demek için bana ulaşabilirsin.</p>
+            <div class="contact__links">
+              <!-- Gerçek profil ve e-posta bilgileri geldiğinde bu iki adres güncellenebilir. -->
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <span class="contact-icon" aria-hidden="true">GH</span>
+                <span><small>Projeleri incele</small><strong>GitHub</strong></span>
+                <i aria-hidden="true">↗</i>
+              </a>
+              <a href="mailto:">
+                <span class="contact-icon" aria-hidden="true">@</span>
+                <span><small>Bir mesaj gönder</small><strong>E-posta</strong></span>
+                <i aria-hidden="true">↗</i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer__top">
+        <div>
+          <a class="brand" href="#anasayfa"><span class="brand__mark" aria-hidden="true">SA</span><span class="brand__name">Süleyman Ay</span></a>
+          <p>Bağımsız geliştirici. Sade ürünler, iyi deneyimler.</p>
+        </div>
+        <a class="back-to-top" href="#anasayfa">Yukarı dön <span aria-hidden="true">↑</span></a>
+      </div>
+      <div class="container footer__bottom">
+        <p>© 2026 Süleyman Ay. Tüm hakları saklıdır.</p>
+        <div>
+          <button type="button" data-dialog="privacy-dialog">Gizlilik Politikası</button>
+          <button type="button" data-dialog="terms-dialog">Kullanım Koşulları</button>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="legal-dialog" id="privacy-dialog" aria-labelledby="privacy-title">
+      <div class="legal-dialog__head">
+        <h2 id="privacy-title">Gizlilik Politikası</h2>
+        <button type="button" data-close-dialog aria-label="Gizlilik politikasını kapat">×</button>
+      </div>
+      <div class="legal-dialog__body">
+        <p><strong>Son güncelleme:</strong> 25 Temmuz 2026</p>
+        <p>Bu web sitesi tamamen statiktir; ziyaretçilerden kişisel veri toplamaz, üyelik sistemi içermez ve takip çerezi kullanmaz.</p>
+        <h3>Dış bağlantılar</h3>
+        <p>GitHub ve e-posta gibi üçüncü taraf bağlantıları kendi gizlilik koşullarına tabidir. Bu sitelerden doğan veri işlemlerinden ilgili hizmet sağlayıcı sorumludur.</p>
+        <h3>İletişim</h3>
+        <p>Gizlilik hakkında sorularınız için iletişim bölümündeki e-posta bağlantısını kullanabilirsiniz.</p>
+      </div>
+    </dialog>
+
+    <dialog class="legal-dialog" id="terms-dialog" aria-labelledby="terms-title">
+      <div class="legal-dialog__head">
+        <h2 id="terms-title">Kullanım Koşulları</h2>
+        <button type="button" data-close-dialog aria-label="Kullanım koşullarını kapat">×</button>
+      </div>
+      <div class="legal-dialog__body">
+        <p><strong>Son güncelleme:</strong> 25 Temmuz 2026</p>
+        <p>Bu siteyi kullanarak içerikleri yalnızca bilgi edinme amacıyla görüntülemeyi kabul etmiş olursunuz.</p>
+        <h3>Fikrî mülkiyet</h3>
+        <p>Sitedeki marka adları, metinler ve özgün tasarım öğeleri aksi belirtilmedikçe Süleyman Ay'a aittir.</p>
+        <h3>Sorumluluk</h3>
+        <p>Uygulama ve oyunlara ait durum bilgileri zaman içinde değişebilir. Site içeriğinin güncelliği için makul çaba gösterilir.</p>
+      </div>
+    </dialog>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

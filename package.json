@@ -1,0 +1,20 @@
+{
+  "name": "suleyman-ay-resmi-web-sitesi",
+  "version": "1.0.1",
+  "private": true,
+  "description": "GitHub Pages üzerinde çalışan tamamen statik kişisel site ve yönetim paneli.",
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/prepare-pages-build.mjs",
+    "preview": "vite preview",
+    "test": "pnpm build && node --test tests/static-build.test.mjs"
+  },
+  "devDependencies": {
+    "vite": "8.0.13"
+  },
+  "type": "module"
+}
