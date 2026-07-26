@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T13:11:15.417Z",
+  "generatedAt": "2026-07-26T13:44:55.476Z",
   "settings": {
     "siteTitle": "Süleyman Ay",
     "siteDescription": "Mobil uygulamalar ve oyunlar geliştiren bağımsız geliştirici.",
@@ -10,7 +10,7 @@
     "seoDescription": "Süleyman Ay'ın mobil uygulamalar ve oyunlar geliştirdiği resmi web sitesi.",
     "theme": "dark",
     "faviconUrl": "",
-    "siteLogoUrl": "assets/uploads/1785071463276-file_0000000099748246918a952239790bd5.png",
+    "siteLogoUrl": null,
     "heroUrl": ""
   },
   "apps": [
@@ -46,12 +46,12 @@
   ],
   "media": [
     {
-      "id": "media-7f70abcd-e613-455f-b3f3-9f5d7e468066",
-      "filename": "file_0000000099748246918a952239790bd5.png",
+      "id": "media-c390d5b7-d239-48e9-8fa6-1b897533b3c6",
+      "filename": "007.png",
       "contentType": "image/png",
-      "size": 482192,
+      "size": 581340,
       "kind": "media",
-      "path": "assets/uploads/1785071463276-file_0000000099748246918a952239790bd5.png"
+      "path": "assets/uploads/1785073480964-007.png"
     }
   ]
 }
