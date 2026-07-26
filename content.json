@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-07-26T12:48:08.766Z",
+  "generatedAt": "2026-07-26T12:50:45.117Z",
   "settings": {
     "siteTitle": "Süleyman Ay",
     "siteDescription": "Mobil uygulamalar ve oyunlar geliştiren bağımsız geliştirici.",
     "footerText": "© 2026 Süleyman Ay. Tüm hakları saklıdır.",
     "githubUrl": "https://github.com/SuleymanAy01",
-    "email": "",
+    "email": "iletisim@suleymanay.net",
     "seoTitle": "Süleyman Ay — Bağımsız Geliştirici",
     "seoDescription": "Süleyman Ay'ın mobil uygulamalar ve oyunlar geliştirdiği resmi web sitesi.",
     "theme": "dark",
-    "faviconUrl": null,
-    "siteLogoUrl": null,
-    "heroUrl": null
+    "faviconUrl": "",
+    "siteLogoUrl": "",
+    "heroUrl": ""
   },
   "apps": [
     {
