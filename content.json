@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T11:42:41.734Z",
+  "generatedAt": "2026-07-26T12:22:58.941Z",
   "settings": {
     "siteTitle": "Süleyman Ay",
     "siteDescription": "Mobil uygulamalar ve oyunlar geliştiren bağımsız geliştirici.",
@@ -42,52 +42,7 @@
       "platform": "Android",
       "googlePlayUrl": null,
       "logoUrl": null
-    },
-    {
-      "id": "game-city-rush",
-      "name": "City Rush",
-      "description": "Neon şehir sokaklarında reflekslerini sınayan tempolu ve akıcı bir koşu deneyimi.",
-      "status": "Yakında",
-      "platform": "Android",
-      "googlePlayUrl": null,
-      "logoUrl": null
-    },
-    {
-      "id": "game-horizon-vale",
-      "name": "Horizon Vale",
-      "description": "Uzak ufukların, saklı patikaların ve dingin keşiflerin şekillendirdiği bir vadi.",
-      "status": "Yakında",
-      "platform": "Android",
-      "googlePlayUrl": null,
-      "logoUrl": null
-    },
-    {
-      "id": "game-reactix",
-      "name": "Reactix",
-      "description": "Minimal kurallar, artan tempo ve her turda biraz daha keskinleşen bir refleks sınavı.",
-      "status": "Yakında",
-      "platform": "Android",
-      "googlePlayUrl": null,
-      "logoUrl": null
-    },
-    {
-      "id": "game-teranova",
-      "name": "Teranova",
-      "description": "Yeni bir dünyanın sırlarını çözerken seçimlerinle yolunu şekillendireceğin atmosferik bir macera.",
-      "status": "Yakında",
-      "platform": "Android",
-      "googlePlayUrl": null,
-      "logoUrl": null
     }
   ],
-  "media": [
-    {
-      "id": "media-aa7e0ac0-4b3a-458e-8b76-09205b2d3498",
-      "filename": "007.png",
-      "contentType": "image/png",
-      "size": 581340,
-      "kind": "media",
-      "path": "assets/uploads/1785066156251-007.png"
-    }
-  ]
+  "media": []
 }
